@@ -1,0 +1,18 @@
+{
+  "name": "SMSAI",
+  "description": "Por fERNANDA bARROS",
+  "repository": "https://github.com/Ferbarrosmc/SMSIA",
+  "scripts": {
+    "postdeploy": "echo Ejecutar tareas de configuración adicional después de la implementación"
+  },
+  "env": {
+    "ENV_VARIABLE_1": {
+      "description": "Descripción de la variable de entorno 1",
+      "value": "Valor de la variable de entorno 1"
+    },
+    "ENV_VARIABLE_2": {
+      "description": "Descripción de la variable de entorno 2",
+      "value": "Valor de la variable de entorno 2"
+    }
+  }
+}
