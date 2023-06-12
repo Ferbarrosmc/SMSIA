@@ -55,14 +55,6 @@
         responseDiv.style.display = "block";
         document.getElementById("token").textContent = "Token generado";
 
-        // Autocompletar el campo de la metadata con los valores proporcionados
-        var jsonMetadataField = document.getElementById("jsonMetadata");
-        jsonMetadataField.value = JSON.stringify({
-            "codUsuario": "JBK",
-            "codSucursal": 70,
-            "codAplicacion": 1
-        });
-
         document.getElementById("executeJsonForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -79,4 +71,8 @@
         });
 
         // Reiniciar el formulario después de enviar los datos
-        document.getElementById
+        document.getElementById("tokenForm").reset();
+    });
+</script>
+</body>
+</html>
