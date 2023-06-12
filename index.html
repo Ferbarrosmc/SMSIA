@@ -35,7 +35,9 @@
             <input type="submit" value="Ejecutar JSON">
         </form>
     </div>
-
+    
+<div id="responseMessage"></div>
+    
    <script>
     document.getElementById("tokenForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -60,6 +62,10 @@
 
             // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
 
+            // Suponiendo que ya has obtenido la respuesta del JSON, mostramos el mensaje de respuesta en el div correspondiente
+            var responseMessage = document.getElementById("responseMessage");
+            responseMessage.textContent = "Respuesta del JSON: Mensaje enviado correctamente";
+ 
             // Reiniciar el formulario después de enviar los datos
             document.getElementById("executeJsonForm").reset();
         });
