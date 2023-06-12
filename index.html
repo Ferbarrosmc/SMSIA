@@ -7,10 +7,10 @@
     <h1>SMS</h1>
     <form id="tokenForm">
         <label for="apiKey">API Key:</label>
-        <input type="text" id="apiKey" name="apiKey" value="bga-app-api-crm-01" required><br><br>
+        <input type="text" id="apiKey" name="apiKey" required><br><br>
 
         <label for="apiSecret">API Secret:</label>
-        <input type="password" id="apiSecret" name="apiSecret" value="8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa" required><br><br>
+        <input type="password" id="apiSecret" name="apiSecret" required><br><br>
 
         <label for="jsonMessage">Mensaje a ser enviado:</label>
         <input type="text" id="jsonMessage" name="jsonMessage" required><br><br>
@@ -19,7 +19,7 @@
         <input type="text" id="toPhone" name="toPhone" required><br><br>
 
         <label for="idRequestor">ID del Solicitante:</label>
-        <input type="text" id="idRequestor" name="idRequestor" value="10000" required><br><br>
+        <input type="text" id="idRequestor" name="idRequestor" required><br><br>
 
         <input type="submit" value="Generar Token">
     </form>
@@ -49,6 +49,7 @@
         var idRequestor = document.getElementById("idRequestor").value;
 
         // Aquí puedes realizar la lógica para generar el token utilizando las variables apiKey y apiSecret
+        var tokenUrl = "https://api.bg.com.bo/bgdev/api-oauth/oauth2/tokenoauth2/token";
 
         // Suponiendo que ya has generado el token, mostramos el token en el div de respuesta
         var responseDiv = document.getElementById("responseDiv");
@@ -61,6 +62,7 @@
             var jsonMetadata = document.getElementById("jsonMetadata").value;
 
             // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
+            var apiUrl = "https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send";
 
             // Suponiendo que ya has obtenido la respuesta del JSON, mostramos el mensaje de respuesta en el div correspondiente
             var responseMessage = document.getElementById("responseMessage");
