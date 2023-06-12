@@ -36,37 +36,37 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById("tokenForm").addEventListener("submit", function(event) {
+   <script>
+    document.getElementById("tokenForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var apiKey = document.getElementById("apiKey").value;
+        var apiSecret = document.getElementById("apiSecret").value;
+        var jsonMessage = document.getElementById("jsonMessage").value;
+        var toPhone = document.getElementById("toPhone").value;
+        var idRequestor = document.getElementById("idRequestor").value;
+
+        // Aquí puedes realizar la lógica para generar el token utilizando las variables apiKey y apiSecret
+
+        // Suponiendo que ya has generado el token, mostramos el token en el div de respuesta
+        var responseDiv = document.getElementById("responseDiv");
+        responseDiv.style.display = "block";
+        document.getElementById("token").textContent = "Token generado";
+
+        document.getElementById("executeJsonForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            var apiKey = document.getElementById("apiKey").value;
-            var apiSecret = document.getElementById("apiSecret").value;
-            var jsonMessage = document.getElementById("jsonMessage").value;
-            var toPhone = document.getElementById("toPhone").value;
-            var idRequestor = document.getElementById("idRequestor").value;
+            var jsonMetadata = document.getElementById("jsonMetadata").value;
 
-            // Aquí puedes realizar la lógica para generar el token utilizando las variables apiKey y apiSecret
-
-            // Suponiendo que ya has generado el token, mostramos el token en el div de respuesta
-            var responseDiv = document.getElementById("responseDiv");
-            responseDiv.style.display = "block";
-            document.getElementById("token").textContent = "Token generado";
-
-            document.getElementById("executeJsonForm").addEventListener("submit", function(event) {
-                event.preventDefault();
-
-                var jsonMetadata = document.getElementById("jsonMetadata").value;
-
-                // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
-
-                // Reiniciar el formulario después de enviar los datos
-                document.getElementById("executeJsonForm").reset();
-            });
+            // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
 
             // Reiniciar el formulario después de enviar los datos
-            document.getElementById("tokenForm").reset();
+            document.getElementById("executeJsonForm").reset();
         });
-    </script>
+
+        // Reiniciar el formulario después de enviar los datos
+        document.getElementById("tokenForm").reset();
+    });
+</script>
 </body>
 </html>
