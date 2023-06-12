@@ -30,7 +30,7 @@
 
         <form id="executeJsonForm">
             <label for="jsonMetadata">Metadata:</label>
-            <input type="text" id="jsonMetadata" name="jsonMetadata" required><br><br>
+            <input type="text" id="jsonMetadata" name="jsonMetadata" value='{"codUsuario": "JBK", "codSucursal": 70, "codAplicacion": 1}' required><br><br>
 
             <input type="submit" value="Ejecutar JSON">
         </form>
@@ -50,6 +50,11 @@
 
         // Aquí puedes realizar la lógica para generar el token utilizando las variables apiKey y apiSecret
         var tokenUrl = "https://api.bg.com.bo/bgdev/api-oauth/oauth2/tokenoauth2/token";
+        var tokenData = {
+            client_id: "bga-app-api-crm-01",
+            client_secret: "8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa",
+            grant_type: "client_credentials"
+        };
 
         // Suponiendo que ya has generado el token, mostramos el token en el div de respuesta
         var responseDiv = document.getElementById("responseDiv");
@@ -63,6 +68,16 @@
 
             // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
             var apiUrl = "https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send";
+            var jsonData = {
+                data: {
+                    toPhone: toPhone,
+                    message: jsonMessage,
+                    typeMessage: 3,
+                    idRequestor: 10000,
+                    funcionalityId: 30
+                },
+                metadata: JSON.parse(jsonMetadata)
+            };
 
             // Suponiendo que ya has obtenido la respuesta del JSON, mostramos el mensaje de respuesta en el div correspondiente
             var responseMessage = document.getElementById("responseMessage");
