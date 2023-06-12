@@ -36,7 +36,7 @@
         </form>
     </div>
     
-<div id="responseMessage"></div>
+    <div id="responseMessage"></div>
     
    <script>
     document.getElementById("tokenForm").addEventListener("submit", function(event) {
@@ -55,6 +55,14 @@
         responseDiv.style.display = "block";
         document.getElementById("token").textContent = "Token generado";
 
+        // Autocompletar el campo de la metadata con los valores proporcionados
+        var jsonMetadataField = document.getElementById("jsonMetadata");
+        jsonMetadataField.value = JSON.stringify({
+            "codUsuario": "JBK",
+            "codSucursal": 70,
+            "codAplicacion": 1
+        });
+
         document.getElementById("executeJsonForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
@@ -65,14 +73,10 @@
             // Suponiendo que ya has obtenido la respuesta del JSON, mostramos el mensaje de respuesta en el div correspondiente
             var responseMessage = document.getElementById("responseMessage");
             responseMessage.textContent = "Respuesta del JSON: Mensaje enviado correctamente";
- 
+
             // Reiniciar el formulario después de enviar los datos
             document.getElementById("executeJsonForm").reset();
         });
 
         // Reiniciar el formulario después de enviar los datos
-        document.getElementById("tokenForm").reset();
-    });
-</script>
-</body>
-</html>
+        document.getElementById
