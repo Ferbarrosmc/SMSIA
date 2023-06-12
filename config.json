@@ -1,0 +1,48 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "https://example.com/app-icon.png",
+    "iconSmall": "https://example.com/app-icon-small.png",
+    "category": "interaction",
+    "isConfigured": true,
+    "configurationDisabled": false,
+    "configInspector": {
+      "size": "scm-lg",
+      "emptyIframe": true
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [],
+      "outArguments": [],
+      "url": "https://example.com/execute",
+      "verb": "POST",
+      "body": "",
+      "header": "",
+      "format": "json",
+      "useJwt": true,
+      "timeout": 10000
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "my-app-key",
+    "save": {
+      "url": "https://example.com/save",
+      "verb": "POST",
+      "useJwt": true,
+      "timeout": 10000
+    },
+    "publish": {
+      "url": "https://example.com/publish",
+      "verb": "POST",
+      "useJwt": true,
+      "timeout": 10000
+    },
+    "validate": {
+      "url": "https://example.com/validate",
+      "verb": "POST",
+      "useJwt": true,
+      "timeout": 10000
+    }
+  }
+}
