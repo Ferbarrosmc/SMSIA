@@ -1,8 +1,8 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "https://example.com/app-icon.png",
-    "iconSmall": "https://example.com/app-icon-small.png",
+    "icon": "logo.png",
+    "iconSmall": "logo.png",
     "category": "interaction",
     "isConfigured": true,
     "configurationDisabled": false,
@@ -15,7 +15,7 @@
     "execute": {
       "inArguments": [],
       "outArguments": [],
-      "url": "https://example.com/execute",
+      "url": "https://smsia.herokuapp.com/execute",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -27,19 +27,19 @@
   "configurationArguments": {
     "applicationExtensionKey": "my-app-key",
     "save": {
-      "url": "https://example.com/save",
+      "url": "https://smsia.herokuapp.com/save",
       "verb": "POST",
       "useJwt": true,
       "timeout": 10000
     },
     "publish": {
-      "url": "https://example.com/publish",
+      "url": "https://smsia.herokuapp.com/publish",
       "verb": "POST",
       "useJwt": true,
       "timeout": 10000
     },
     "validate": {
-      "url": "https://example.com/validate",
+      "url": "https://smsia.herokuapp.com/validate",
       "verb": "POST",
       "useJwt": true,
       "timeout": 10000
