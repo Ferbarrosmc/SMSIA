@@ -2,12 +2,32 @@
   "workflowApiVersion": "1.1",
   "metaData": {
     "icon": "logo.png",
-    "category": "message"
-  },
-  "tipe" : "REST",
-  "UserInterfaces": {
-    "configInspector": {
-      "size": "medium"
+    "iconSmall": "logo.png",
+    "category": "Custom Activities",
+    "isConfigured": false,
+    "configurationArguments": {
+      "applicationExtensionKey": "SMSIA",
+      "saveURL": "https://smsia.herokuapp.com/custom-activity/save",
+      "publishURL": "https://smsia.herokuapp.com/custom-activity/publish"
     }
-  }
+  },
+  "editable": true,
+  "outcomes": [
+    {
+      "arguments": {
+        "branchResult": "OK"
+      },
+      "metaData": {
+        "label": "OK"
+      }
+    },
+    {
+      "arguments": {
+        "branchResult": "Error"
+      },
+      "metaData": {
+        "label": "Error"
+      }
+    }
+  ]
 }
