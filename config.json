@@ -3,7 +3,7 @@
   "metaData": {
     "icon": "logo.png",
     "iconSmall": "logo.png",
-    "category": "Custom Activities",
+    "category": "Mensaje",
     "isConfigured": true,
     "configurationArguments": {
       "applicationExtensionKey": "SMSIA",
