@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SMS</title>
+</head>
+<body>
+    <h1>SMS</h1>
+    <form id="tokenForm">
+        <label for="apiKey">API Key:</label>
+        <input type="text" id="apiKey" name="apiKey" required><br><br>
+
+        <label for="apiSecret">API Secret:</label>
+        <input type="password" id="apiSecret" name="apiSecret" required><br><br>
+
+        <label for="jsonMessage">Mensaje a ser enviado:</label>
+        <input type="text" id="jsonMessage" name="jsonMessage" required><br><br>
+
+        <label for="toPhone">Celular:</label>
+        <input type="text" id="toPhone" name="toPhone" required><br><br>
+
+        <label for="idRequestor">ID del Solicitante:</label>
+        <input type="text" id="idRequestor" name="idRequestor" required><br><br>
+
+        <input type="submit" value="Generar Token">
+    </form>
+
+    <div id="responseDiv" style="display: none;">
+        <h2>Token generado:</h2>
+        <p id="token"></p>
+
+        <form id="executeJsonForm">
+            <label for="jsonMetadata">Metadata:</label>
+            <input type="text" id="jsonMetadata" name="jsonMetadata" required><br><br>
+
+            <input type="submit" value="Ejecutar JSON">
+        </form>
+    </div>
+    
+    <div id="responseMessage"></div>
+    
+   <script>
+    document.getElementById("tokenForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var apiKey = document.getElementById("apiKey").value;
+        var apiSecret = document.getElementById("apiSecret").value;
+        var jsonMessage = document.getElementById("jsonMessage").value;
+        var toPhone = document.getElementById("toPhone").value;
+        var idRequestor = document.getElementById("idRequestor").value;
+
+        // Aquí puedes realizar la lógica para generar el token utilizando las variables apiKey y apiSecret
+        var tokenUrl = "https://api.bg.com.bo/bgdev/api-oauth/oauth2/tokenoauth2/token";
+
+        // Suponiendo que ya has generado el token, mostramos el token en el div de respuesta
+        var responseDiv = document.getElementById("responseDiv");
+        responseDiv.style.display = "block";
+        document.getElementById("token").textContent = "Token generado";
+
+        document.getElementById("executeJsonForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var jsonMetadata = document.getElementById("jsonMetadata").value;
+
+            // Aquí puedes realizar la lógica para ejecutar el JSON utilizando los datos ingresados
+            var apiUrl = "https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send";
+
+            // Suponiendo que ya has obtenido la respuesta del JSON, mostramos el mensaje de respuesta en el div correspondiente
+            var responseMessage = document.getElementById("responseMessage");
+            responseMessage.textContent = "Respuesta del JSON: Mensaje enviado correctamente";
+
+            // Reiniciar el formulario después de enviar los datos
+            document.getElementById("executeJsonForm").reset();
+        });
+
+        // Reiniciar el formulario después de enviar los datos
+        document.getElementById("tokenForm").reset();
+    });
+</script>
+</body>
+</html>
