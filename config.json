@@ -2,6 +2,12 @@
   "workflowApiVersion": "1.1",
   "metaData": {
     "icon": "logo.png",
-    "iconSmall": "logo.png"
+    "category": "message"
+  },
+  "tipe" : "REST",
+  "UserInterfaces": {
+    "configInspector": {
+      "size": "medium"
+    }
   }
 }
