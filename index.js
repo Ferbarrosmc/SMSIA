@@ -1,60 +1,58 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = process.env.PORT || 3000;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post('/', async (req, res) => {
-  try {
-    const token = await generateToken();
-    const { toPhone, message } = req.body;
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
 
-    const response = await sendSMS(token, toPhone, message);
-    res.json(response.data);
+app.post('/enviar-sms', async (req, res) => {
+  const { toPhone, message } = req.body;
+
+  try {
+    // Obtener el token de autenticación
+    const tokenResponse = await axios.post('https://api.bg.com.bo/bgdev/api-oauth/oauth2/token', {
+      client_id: 'bga-app-api-crm-01',
+      client_secret: '8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa',
+      grant_type: 'client_credentials'
+    });
+
+    const accessToken = tokenResponse.data.access_token;
+
+    // Construir el objeto JSON con los datos del mensaje
+    const smsData = {
+      data: {
+        toPhone: toPhone,
+        message: message,
+        typeMessage: 3,
+        idRequestor: 10000,
+        funcionalityId: 30
+      },
+      metadata: {
+        codUsuario: 'JBK',
+        codSucursal: 70,
+        codAplicacion: 1
+      }
+    };
+
+    // Enviar la solicitud a la API para enviar el SMS
+    await axios.post('https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send', smsData, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+
+    res.send('SMS enviado correctamente');
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error al enviar el SMS:', error);
+    res.status(500).send('Error al enviar el SMS');
   }
 });
 
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Servidor iniciado en el puerto ${port}`);
 });
-
-async function generateToken() {
-  const url = 'https://api.bg.com.bo/bgdev/api-oauth/oauth2/token';
-  const params = new URLSearchParams({
-    client_id: 'bga-app-api-crm-01',
-    client_secret: '8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa',
-    grant_type: 'client_credentials',
-  });
-
-  const response = await axios.post(url, params);
-  return response.data.access_token;
-}
-
-async function sendSMS(token, toPhone, message) {
-  const url = 'https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send';
-  const data = {
-    data: {
-      toPhone,
-      message,
-      typeMessage: 3,
-      idRequestor: 10000,
-      funcionalityId: 30,
-    },
-    metadata: {
-      codUsuario: 'JBK',
-      codSucursal: 70,
-      codAplicacion: 1,
-    },
-  };
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  return axios.post(url, data, config);
-}
