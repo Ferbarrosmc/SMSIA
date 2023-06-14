@@ -1,8 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Enviar SMS</title>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="vendor/salesforce-lightning-design-system/styles/salesforce-lightning-design-system.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="//code.jquery.com/git/jquery-git.min.js"></script>
+    <script type="text/javascript" src="js/require.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var config = {
+                baseUrl: 'js'
+            };
+
+            var dependencies = [
+                'customActivity'
+            ];
+
+            require(config, dependencies);
+        })();
+    </script>
 </head>
+
 <body>
   <h1>Enviar SMS</h1>
   <form action="/enviar-sms" method="post">
@@ -13,4 +35,5 @@
     <button type="submit">Enviar SMS</button>
   </form>
 </body>
+
 </html>
