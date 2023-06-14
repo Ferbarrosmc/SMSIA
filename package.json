@@ -2,9 +2,9 @@
   "name": "SMS",
   "version": "1.0.0",
   "description": "My Application",
-  "main": "index.js",
+  "main": "customActivity.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node customActivity.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
