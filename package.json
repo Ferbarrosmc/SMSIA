@@ -2,9 +2,9 @@
   "name": "SMSIA-main",
   "version": "1.0.0",
   "description": "My Application",
-  "main": "public/js/customActivity.js",
+  "main": "customActivity.js",
   "scripts": {
-    "start": "node public/js/customActivity.js"
+    "start": "node customActivity.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
