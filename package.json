@@ -2,7 +2,7 @@
   "name": "SMSIA-main",
   "version": "1.0.0",
   "description": "My Application",
-  "main": "customActivity.js",
+  "main": "public/js/customActivity.js",
   "scripts": {
     "start": "node customActivity.js"
   },
