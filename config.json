@@ -1,128 +1,37 @@
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-       "icon": "icono.png",
-       "category": "message"
+       "icon": "logo.png",
+       "category": "Message"
     },
     "type": "REST",
     "lang": {
        "en-US": {
-           "name": "SMS",
-           "description": "Send SMS with Journey Builder",
-           "TwilioMessage":"test"
+           "name": "Send SMS",
+           "description": "REST activity for Journey Builder"
        }
     },
     "arguments": {
         "execute": {
-            "inArguments": [
-                {
-                  "email": "{{Contact.Default.EmailAddress}}",
-                  "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" 
-                }               
-            ],
+            "inArguments": [],
             "outArguments": [],
-            "url": "https://smsia.herokuapp.com/journeybuilder/execute",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
+            "url": "https://smsia.herokuapp.com/execute"
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "e8930c5f0-5f7f-492d-b0f4-0d95b3c107d0",
-       "save": {
-           "url": "https://smsia.herokuapp.com/save",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "publish": {
-           "url": "https://smsia.herokuapp.com/publish",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "validate": {
-           "url": "https://smsia.herokuapp.com/validate",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "stop": {
-           "url": "https://smsia.herokuapp.com/stop",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       }
+        "applicationExtensionKey": "",
+         "publish": {
+          "url": "https://smsia.herokuapp.com/publish"
+         }
     },
     "wizardSteps": [
-       { "label": "Create SMS Message", "key": "step1" }
+       { "label": "Step 1", "key": "step1" },
+       { "label": "Step 2", "key": "step2", "active": false }
     ],
     "userInterfaces": {
        "configModal": {
-           "height": 600,
-           "width": 800,
-           "fullscreen": false
+           "height": 200,
+           "width": 300
        }
-    },
-    "schema": {
-        "arguments": {
-            "execute": {
-                "inArguments": [
-                    {
-                        "accountSid": {
-                            "dataType": "String",
-                            "isNullable": false,
-                            "direction": "out"   
-                        }
-                    },                    
-                    {
-                        "authToken": {
-                            "dataType": "String",
-                            "isNullable": false,
-                            "direction": "out"   
-                        }
-                    },                    
-                    {
-                        "from": {
-                            "dataType": "Phone",
-                            "isNullable": true,
-                            "direction": "out"   
-                        }
-                    },                    
-                    {
-                        "to": {
-                            "dataType": "Phone",
-                            "isNullable": false,
-                            "direction": "out"   
-                        }
-                    },
-                    {
-                        "body": {
-                            "dataType": "String",
-                            "isNullable": false,
-                            "direction": "out"   
-                        }
-                    },                    
-                    {
-                        "email": {
-                            "dataType": "Email",
-                            "isNullable": true,
-                            "direction": "out"
-                        }
-                    }
-                ],
-                "outArguments": []
-            }
-        }
     }
 }
