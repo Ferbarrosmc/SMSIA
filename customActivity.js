@@ -19,9 +19,7 @@ app.post('/enviar-sms', async (req, res) => {
       client_secret: '8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa',
       grant_type: 'client_credentials'
     });
-
     const accessToken = tokenResponse.data.access_token;
-
     // Construir el objeto JSON con los datos del mensaje
     const smsData = {
       data: {
@@ -37,7 +35,6 @@ app.post('/enviar-sms', async (req, res) => {
         codAplicacion: 1
       }
     };
-
     // Enviar la solicitud a la API para enviar el SMS
     await axios.post('https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send', smsData, {
       headers: {
