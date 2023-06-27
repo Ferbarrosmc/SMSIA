@@ -1,0 +1,30 @@
+COMO MODIFICAR LAS CREDENCIALES DE AL API?
+
+Ingresar a archivo customActivity.js y modificar los parametros siguientes segun sea necesario
+
+    // Obtener el token de autenticación
+    const tokenResponse = await axios.post('https://api.bg.com.bo/bgdev/api-oauth/oauth2/token', {
+      client_id: 'bga-app-api-crm-01',
+      client_secret: '8DrLhkRINhafvUtw1Kf83aLuTIWE1eEa',
+      grant_type: 'client_credentials'
+
+
+    // Construir el objeto JSON con los datos del mensaje
+    const smsData = {
+      data: {
+        toPhone: toPhone,
+        message: message,
+        typeMessage: 3,
+        idRequestor: 10000,
+        funcionalityId: 30
+      },
+      metadata: {
+        codUsuario: 'JBK',
+        codSucursal: 70,
+        codAplicacion: 1
+      }
+    };
+
+    // Enviar la solicitud a la API para enviar el SMS
+    await axios.post('https://api.bg.com.bo/bgdev/int/notifc/v1/sms/send',
+
